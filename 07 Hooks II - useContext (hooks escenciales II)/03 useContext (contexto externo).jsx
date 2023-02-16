@@ -6,7 +6,7 @@
 
   function AppProvider (props) {
     return(
-      <AppContext.Provider value={'hola'}>
+      <AppContext.Provider value={props.value}>
         {props.children}
       </AppContext.Provider>
     )
@@ -40,6 +40,26 @@
     margin: 32px;
   `
   export default App
+
+  // Componente Hijo.js
+  import React from 'react'
+  import styled from 'styled-components'
+  import Nieto from './Nieto'
+
+  function Hijo() {
+    return (
+      <HijoStyled>
+        <h2>HIJO</h2>
+        <Nieto />
+      </HijoStyled>
+    )
+  }
+  const HijoStyled = styled.div`
+    border: 3px solid brown;
+    height: 300px;
+    margin: 32px;
+  `
+  export default Hijo
 
   // Componente Nieto.js
   import React from 'react'
